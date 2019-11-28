@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 15:51:48 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 18:00:24 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 14:15:37 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_write(t_list *stock)
 {
 	int fd;
 
-	fd = open("screen.bmp", O_CREAT);
+	fd = open(SCREENSHOT_PATH, O_CREAT);
 	close(fd);
 	create_bmp(stock);
 }

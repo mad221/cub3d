@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:14:41 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 12:27:57 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 14:02:36 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int			main(int ac, char **argv)
 		ft_save(argv[ac - 1], stock);
 		return (0);
 	}
-	ft_init_value(stock);
 	mlx_key_hook(stock->mlx_wdw, ft_deal_key, stock);
 	mlx_hook(stock->mlx_wdw, 17, 1L << 17, &ft_redcross, stock);
 	mlx_string_put(stock->mlx_co, stock->mlx_wdw, stock->wdw_width / 2.25,

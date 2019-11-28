@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 10:11:46 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 12:15:28 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,8 @@ int					ft_save(char *str, t_list *stock);
 int					create_bmp(t_list *stock);
 void				write_rgb(t_list *stock, int height, int width, int fd);
 void				generate_bitmap_image(t_list *stock, int height, int width);
-unsigned char		*create_bitmap_file_header(int height, int width, int padding_size);
+unsigned char		*create_bitmap_file_header(int height,
+int width, int padding_size);
 unsigned char		*create_bitmap_info_header(int height, int width);
 void				ft_mlx_stop(t_list *stock);
 int					ft_redcross(t_list *stock);

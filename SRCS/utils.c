@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:17:01 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 11:35:44 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 12:12:32 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int		ft_convert(char *str)
 {
 	int i;
 	int color;
+	int s;
 
+	s = 0;
 	i = 0;
 	color = 0;
 	if (str[i] == 'F' || str[i] == 'C')
@@ -60,12 +62,12 @@ int		ft_convert(char *str)
 		{
 			color = color * 10 + str[i] - '0';
 			i++;
-			if (str[i] == ',')
+			if (str[i] == ',' && ++s < 6)
 				i++;
 		}
 		if (str[i] != '\0' && ft_isnum(str[i]) != 1)
 			return (-1);
-		if (i <= 11)
+		if (i <= 11 && s == 2)
 			return (color);
 	}
 	return (-1);

@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:49:21 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 11:30:59 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 13:32:49 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,15 @@ void	ft_minimap(int **map, t_list *stock)
 	int y;
 
 	y = -1;
-	while (++y < stock->map_height)
+	while (++y < stock->map_height && stock->map_height * 10
+	< stock->wdw_width / 4)
 	{
 		x = -1;
 		while (++x < stock->lenstring)
 		{
 			if (map[y][x] == 1 || (x == (int)stock->x && (int)stock->y == y))
-				ft_miniwall(y, x, stock);
+				if (stock->wdw_height > 600 && stock->wdw_width > 500)
+					ft_miniwall(y, x, stock);
 		}
 	}
 }

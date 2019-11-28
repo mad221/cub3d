@@ -6,7 +6,7 @@
 #    By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 16:33:34 by mpouzol           #+#    #+#              #
-#    Updated: 2019/11/27 17:48:12 by mpouzol          ###   ########.fr        #
+#    Updated: 2019/11/28 11:19:04 by mpouzol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,26 +16,27 @@ MN = mini
 
 OPT = -lm -lmlx -framework OpenGL -framework AppKit
 
-SRCS =	area_vision.c\
-		get_next_line.c\
-		minimap.c\
-		parsing_2.c\
-		player.c\
-		sprite.c\
-		draw.c\
-		get_next_line_utils.c\
-		move.c\
-		parsing_3.c\
-		rc.c\
-		utils.c\
-		error.c\
-		main.c\
-		parsing.c\
-		parsing_4.c\
-		rc_set.c\
-		utils_2.c\
-		save.c\
-		bmp.c\
+SRCS =	SRCS/area_vision.c\
+        SRCS/cross.c\
+		SRCS/error.c\
+		SRCS/get_next_line_utils.c\
+		SRCS/minimap.c\
+	 	SRCS/parsing.c\
+		SRCS/parsing_3.c\
+		SRCS/player.c\
+		SRCS/rc_set.c\
+		SRCS/sprite.c\
+		SRCS/utils_2.c\
+		SRCS/bmp.c\
+		SRCS/draw.c\
+		SRCS/get_next_line.c\
+		SRCS/main.c\
+	    SRCS/move.c\
+		SRCS/parsing_2.c\
+	    SRCS/parsing_4.c\
+		SRCS/rc.c\
+		SRCS/save.c\
+		SRCS/utils.c
 
 OBJECTS = $(SRCS:.c=.o)
 
@@ -56,7 +57,6 @@ $(NAME) : $(OBJECTS)
 
 clean :
 	rm -f $(OBJECTS)
-	$(MK) clean -C $(MN)
 
 fclean : clean
 	rm -f $(NAME)

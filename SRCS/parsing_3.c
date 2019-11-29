@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:22:06 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 22:07:59 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 19:20:54 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 static int		ft_init_texture(t_list *stock)
 {
-	stock->height = 0;
-	stock->width = 0;
-	stock->mlx_co = mlx_init();
+	stock->nbr_texture = 0;
+
+	if ((stock->mlx_co = mlx_init()) == 0)
+		return (0);
 	if ((stock->mlx_wdw = mlx_new_window(stock->mlx_co,
-	stock->wdw_width, stock->wdw_height, "HA!")) == 0)
+		stock->wdw_width, stock->wdw_height, "HA!")) == 0)
 		return (0);
 	return (1);
 }
@@ -40,11 +41,15 @@ int				ft_texture(t_list *stock)
 		if (((stock->mlx_wall[i] = mlx_xpm_file_to_image(stock->mlx_co,
 		&stock->string[ft_bg(stock->string, i)], &stock->width, &stock->height))
 		<= 0))
+		{
+			free(stock->string);
 			return (0);
-		ft_free(stock);
+		}
+		free(stock->string);
 		if (((stock->cast[i] = (int*)mlx_get_data_addr(stock->mlx_wall[i],
 		&stock->bitpx, &stock->size_line, &stock->endian)) <= 0))
 			return (0);
+		stock->nbr_texture++;
 	}
 	return (1);
 }
@@ -60,7 +65,7 @@ int				ft_color(t_list *stock)
 	while (get_next_line(stock->fd, &stock->string)
 	&& stock->string[0] != 'C')
 		free(stock->string);
-	if ((stock->color_floor = ft_convert(stock->string)) == -1)
+	if ((stock->color_floor = ft_convert(stock->string)) == -1 && ft_free(stock))
 		return (0);
 	free(stock->string);
 	return (1);

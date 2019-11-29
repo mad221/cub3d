@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 20:12:03 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 16:27:34 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ typedef struct		s_list
 	int				map_height;
 	int				lenstring;
 	int				pos_ok;
+	char			*file;
+	int				error;
+	int				nbr_texture;
 }					t_list;
 
 typedef struct		s_sprit

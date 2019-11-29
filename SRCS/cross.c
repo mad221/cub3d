@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:47 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 12:12:54 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 13:02:31 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_redcross(t_list *stock)
 
 	i = -1;
 	free(stock->zbuffer);
+	free(stock->file);
 	while (++i < 4)
 	{
 		free(stock->mlx_wall[i]);

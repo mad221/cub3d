@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 14:02:13 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 20:51:49 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 17:17:30 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ int			ft_map(t_list *stock)
 		get_next_line(stock->fd, &stock->string);
 		stock->map_height = line;
 		if (stock->lenstring != ft_len(stock->string) && i > 1)
+		{
+			printf("je pars d'ici \n");
+			free(stock->string);
 			return (-8);
+		}
 	}
 	ft_free(stock);
 	return (ft_init_pos(stock));
@@ -82,17 +86,24 @@ int			ft_parsing(t_list *stock)
 
 	if (ft_open(stock) == 0)
 		return (-1);
+		printf("je suis la1 \n");
 	if (ft_resolution(stock) == 0)
 		return (-2);
+		printf("je suis la 2\n");
 	if (ft_texture(stock) == 0)
 		return (-3);
+		printf("je suis la 3\n");
 	if (ft_sprite(stock) == 0)
 		return (-4);
+		printf("je suis la 4\n");
 	if (ft_color(stock) == 0)
 		return (-5);
+		printf("je suis la 5\n");
 	if ((error = ft_map(stock)) <= 0)
 		return (error);
+		printf("je suis la6\n");
 	if (ft_check_map(stock) == 0)
 		return (-7);
+		printf("je suis la 7\n");
 	return (1);
 }

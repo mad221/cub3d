@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:47:22 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 12:15:08 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 15:32:46 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_mlx_stop(t_list *stock)
 
 	i = -1;
 	free(stock->zbuffer);
+	free(stock->file);
 	while (++i < 4)
 	{
 		free(stock->mlx_wall[i]);
@@ -29,6 +30,7 @@ void	ft_mlx_stop(t_list *stock)
 	while (++i < stock->map_height)
 		free(stock->map[i]);
 	free(stock->map);
+	free(stock->sprite);
 	mlx_destroy_image(stock->mlx_co, stock->new_wdw);
 	mlx_destroy_window(stock->mlx_co, stock->mlx_wdw);
 	free(stock);

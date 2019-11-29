@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:31:23 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 11:33:45 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 22:06:59 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_free_error(int number, t_list *stock)
 
 	if (number <= -8)
 	{
-		i = 6;
+		i = -1;
 		while (++i < stock->map_height)
 			free(stock->map[i]);
 		free(stock->map);
@@ -42,7 +42,10 @@ int		ft_free_error(int number, t_list *stock)
 	if (number < -3)
 	{
 		while (++i < 4)
+		{
 			free(stock->mlx_wall[i]);
+			free(stock->cast[i]);
+		}
 		free(stock->mlx_wall);
 	}
 	if (number < 0)

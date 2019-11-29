@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:50:37 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 19:24:38 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 15:56:53 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		limit(int a, int limit)
 {
 	if (a < 0)
 		return (0);
-	return (a > limit ? limit : a);
+	return (a > limit ? limit - 1 : a);
 }
 
 void	ft_drawline(double y0, double dx, double dy, t_list *stock)
@@ -48,12 +48,13 @@ void	ft_drawline(double y0, double dx, double dy, t_list *stock)
 
 void	ft_pixel(t_list *stock, int x, int ymin, int ymax)
 {
-	while (ymin < ymax)
-	{
-		stock->data_wdw[limit(ymin * stock->wdw_width + x,
-		stock->wdw_height * stock->wdw_width - 1)] = stock->color;
-		ymin++;
-	}
+	if (ymin >= 0)
+		while (ymin < ymax)
+		{
+			stock->data_wdw[limit(ymin * stock->wdw_width + x,
+			stock->wdw_height * stock->wdw_width - 1)] = stock->color;
+			ymin++;
+		}
 }
 
 void	ft_draw_window(t_list *stock, int x, int ymin, int ymax)

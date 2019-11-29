@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 12:15:28 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 20:12:03 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct		s_list
 	int				endian;
 	int				size_line;
 	int				**cast;
-	int				*number;
 	int				*new_wdw;
 	int				bit_pix_wdw;
 	int				size_line_wdw;

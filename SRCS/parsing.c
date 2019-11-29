@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 14:02:13 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 11:38:32 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 20:51:49 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	ft_sprite(t_list *stock)
 	&stock->sprite_bpx, &stock->sprite_size_line,
 	&stock->sprite_endian)) <= 0)
 		return (0);
+	ft_free(stock);
 	return (1);
 }
 
@@ -40,20 +41,20 @@ int			ft_map(t_list *stock)
 		return (0);
 	if (!(stock->map = malloc(sizeof(int*) * i)))
 		return (0);
-	while (get_next_line(stock->fd, &stock->string) && stock->string[0] != '1'
-	&& ft_free(stock))
-		;
+	while (get_next_line(stock->fd, &stock->string) && stock->string[0] != '1')
+		free(stock->string);
 	while (--i > 0)
 	{
 		stock->map[line] = malloc(sizeof(int) * ft_len(stock->string));
 		stock->lenstring = ft_conv(stock->map[line++], stock->string);
+		ft_free(stock);
 		get_next_line(stock->fd, &stock->string);
 		stock->map_height = line;
 		if (stock->lenstring != ft_len(stock->string) && i > 1)
 			return (-8);
 	}
+	ft_free(stock);
 	return (ft_init_pos(stock));
-	return (1);
 }
 
 int			ft_check_map(t_list *stock)

@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:54:27 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 19:24:27 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 11:54:36 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void		ft_free_sprite(t_sprite *sprite, t_prite *prite)
 {
-	free(prite);
 	free(sprite);
+	free(prite->spriteorder);
+	free(prite->spritedistance);
+	free(prite);
 }
 
 void		ft_sprite(t_list *stock)
@@ -25,7 +27,8 @@ void		ft_sprite(t_list *stock)
 	t_prite		*prite;
 
 	i = 0;
-	prite = malloc(sizeof(t_prite));
+	if (!(prite = malloc(sizeof(t_prite))))
+		return ;
 	prite->numsprite = ft_count_sprite(stock);
 	if (!(sprite = malloc(sizeof(t_sprite) * prite->numsprite)))
 		return ;

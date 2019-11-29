@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:22:06 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/26 14:10:02 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 22:07:59 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ int				ft_texture(t_list *stock)
 
 	i = -1;
 	if (ft_init_texture(stock) == 0 ||
-	!(stock->mlx_wall = malloc(sizeof(int*) * 4 + 1)) ||
-	!(stock->cast = malloc(sizeof(int *) * 4 + 1)))
+	!(stock->mlx_wall = malloc(sizeof(int*) * 4)) ||
+	!(stock->cast = malloc(sizeof(int *) * 4)))
 		return (0);
 	while (++i < 4)
 	{
-		if (ft_check_i(i, stock) == 0)
+		if (ft_check_i(i, stock) == 0 && ft_free(stock) == 0)
 			return (0);
 		if (((stock->mlx_wall[i] = mlx_xpm_file_to_image(stock->mlx_co,
 		&stock->string[ft_bg(stock->string, i)], &stock->width, &stock->height))
 		<= 0))
 			return (0);
+		ft_free(stock);
 		if (((stock->cast[i] = (int*)mlx_get_data_addr(stock->mlx_wall[i],
 		&stock->bitpx, &stock->size_line, &stock->endian)) <= 0))
 			return (0);
@@ -52,14 +53,16 @@ int				ft_color(t_list *stock)
 {
 	while (get_next_line(stock->fd, &stock->string) &&
 	stock->string[0] != 'F' && ft_free(stock))
-		;
+		free(stock->string);
 	if ((stock->color_ciel = ft_convert(stock->string)) == -1)
 		return (0);
+	ft_free(stock);
 	while (get_next_line(stock->fd, &stock->string)
-	&& stock->string[0] != 'C' && ft_free(stock))
-		;
+	&& stock->string[0] != 'C')
+		free(stock->string);
 	if ((stock->color_floor = ft_convert(stock->string)) == -1)
 		return (0);
+	free(stock->string);
 	return (1);
 }
 

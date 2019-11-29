@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 15:51:48 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 14:15:37 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 14:30:35 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int			ft_save(char *str, t_list *stock)
 			ft_mlx_stop(stock);
 		}
 		else
+		{
 			ft_putstr("Error\nretry with -save\n");
+			free(stock);
+		}
 	}
 	return (0);
 }

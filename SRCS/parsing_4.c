@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:50:53 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 11:41:10 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 21:03:09 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int			ft_search_map(t_list *stock, int *i)
 			*i += 1;
 		ft_free(stock);
 	}
+	ft_free(stock);
 	close(stock->fd);
 	stock->map_height = *i;
 	*i += 1;

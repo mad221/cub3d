@@ -6,7 +6,7 @@
 #    By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 16:33:34 by mpouzol           #+#    #+#              #
-#    Updated: 2019/11/28 11:19:04 by mpouzol          ###   ########.fr        #
+#    Updated: 2019/11/28 16:29:31 by mpouzol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ all : $(NAME)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJECTS)
-	make -C $(MN)
 	$(CC) $(FLAGS) $(OPT) $(SRCS) -o $@
 
 clean :

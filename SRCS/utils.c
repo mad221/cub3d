@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:17:01 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 12:12:32 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/28 20:58:17 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int		ft_gnl_pos(t_list *stock, char c1, char c2)
 int		ft_open(t_list *stock)
 {
 	if ((stock->fd = open("SRCS/fil.cub", O_RDONLY)) == -1)
-		return (0);
-	if (!(stock->string = malloc(sizeof(char))))
 		return (0);
 	return (1);
 }

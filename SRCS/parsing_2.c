@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 10:43:09 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/26 13:23:55 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/29 12:02:02 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int		ft_resolution(t_list *stock)
 	int i;
 
 	i = 0;
-	stock->wdw_height = 0;
-	stock->wdw_width = 0;
 	while (get_next_line(stock->fd, &stock->string) && stock->string[0] != 'R')
 		ft_free(stock);
 	if (stock->string[i] == 'R')
@@ -41,10 +39,13 @@ int		ft_resolution(t_list *stock)
 			i++;
 		while (ft_isnum(stock->string[i]) == 1)
 			ft_adding_height(stock, &i);
-		if (stock->string[i] != '\0' && ft_isnum(stock->string[i]) == 0)
+		if (stock->string[i] != '\0' &&
+		ft_isnum(stock->string[i]) == 0 && ft_free(stock))
 			return (0);
+		ft_free(stock);
 		return (1);
 	}
+	ft_free(stock);
 	return (0);
 }
 

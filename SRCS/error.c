@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:31:23 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 19:28:38 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/30 16:34:57 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,29 @@ void	ft_putchar(char c)
 int		ft_free_error(int number, t_list *stock)
 {
 	int i;
-
-	i = -1;
-	while (++i < stock->map_height)
-		free(stock->map[i]);
-	free(stock->map);
+	number += 0;
 	i = -1;
 	printf("number = %d\n", number);
+
+	if (number <= -7)
+	{
+		while (++i <  stock->map_height)
+			free(stock->map[i]);
+		free(stock->map);
+	}
+	i = -1;
 	if (number < -2)
 	{
-		while (++i < stock->nbr_texture)
-		{
-			free(stock->cast[i]);
-			free(stock->mlx_wall[i]);
-		}
-		free(stock->mlx_wall[i]);
-		free(stock->cast);
-		free(stock->mlx_wall);
-		free(stock->new_wdw);
-		free(stock->data_wdw);
-		mlx_destroy_window(stock->mlx_co, stock->mlx_wdw);
-		free(stock->sprite);
-		free(stock->sprite_data);
-		free(stock->mlx_co);
+		printf("stock->num = %d\n", stock->number_path);
+		while (++i <= stock->number_path)
+			free(stock->path_wall[i]);
+		if (stock->number_sprite == 1)
+			free(stock->path_sprite);
+		free(stock->path_wall);
 	}
-	close(stock->fd);
 	free(stock->file);
 	free(stock);
+	system("leaks cub3D");
 	return (0);
 }
 
@@ -90,6 +86,5 @@ int		ft_message(int number, t_list *stock)
 		ft_putstr("Error\nBad Argument Given In Map\n");
 	if (number == -10)
 		ft_putstr("Error\nUnknow Player Position");
-	stock->error = 12;
 	return ((ft_free_error(number, stock)));
 }

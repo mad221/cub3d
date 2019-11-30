@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:14:41 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 16:57:59 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/30 13:28:37 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	ft_init_value(t_list *stock)
 	stock->angle = 3;
 	if (!(stock->zbuffer = malloc(sizeof(double) * stock->wdw_width)))
 		return (0);
+	ft_init_texture(stock);
 	stock->x += 0.1;
 	stock->y += 0.1;
 	return (1);
@@ -91,5 +92,5 @@ int			main(int ac, char **argv)
 	}
 	else
 		ft_putstr("ERROR/Too Many Aurguments\n");
-	return (0);
+	return (EXIT_SUCCESS);
 }

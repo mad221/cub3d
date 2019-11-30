@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:50:53 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 16:09:05 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/30 17:44:54 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,31 @@ int			ft_init_pos(t_list *stock)
 	if (stock->pos_ok == 0)
 		return (-10);
 	return (stock->pos_ok != 1 ? -9 : 1);
+}
+
+int		ft_parsing_map(t_list *stock)
+{
+	int i;
+	int s;
+	int stop;
+
+	s = 0;
+	i = 0;
+	stop = 0;
+	while (i < stock->map_height)
+	{
+		s = 0;
+		while (s < stock->lenstring)
+		{
+			if (stock->map[i][s] != 0 && stock->map[i][s] != 1
+			&& (stock->map[i][s] <= 10 || stock->map[i][s] >= 13))
+				stop = 2;
+			if (stock->map[i][s] >= 10 && stock->map[i][s] <= 13)
+				stop++;
+			if (stop > 1)
+				return (-8);
+			s++;
+		}
+	}
+	return (1);
 }

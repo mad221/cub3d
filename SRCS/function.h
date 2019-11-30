@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 16:27:34 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/11/30 17:20:28 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ typedef struct		s_list
 	char			*file;
 	int				error;
 	int				nbr_texture;
+	char			**path_wall;
+	char			*path_sprite;
+	int 			number_path;
+	int				number_sprite;
 }					t_list;
 
 typedef struct		s_sprit
@@ -192,4 +196,10 @@ int width, int padding_size);
 unsigned char		*create_bitmap_info_header(int height, int width);
 void				ft_mlx_stop(t_list *stock);
 int					ft_redcross(t_list *stock);
+int					ft_cpy(char *dst, char *src);
+int					ft_init_texture(t_list *stock);
+int					ft_texturing(t_list *stock);
+int					ft_spriting(t_list *stock);
+int					ft_parsing_map(t_list *liste);
+int					ft_errormap(char *str);
 #endif

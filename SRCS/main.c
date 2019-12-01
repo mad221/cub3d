@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:14:41 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 16:57:54 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 17:05:46 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static int	ft_init_value(t_list *stock)
 	stock->angle = 3;
 	if (!(stock->zbuffer = malloc(sizeof(double) * stock->wdw_width)))
 		return (0);
-	ft_init_texture(stock);
+	if (ft_init_texture(stock) == 0)
+		return (0);
 	stock->x += 0.1;
 	stock->y += 0.1;
 	return (1);

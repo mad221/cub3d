@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:49:21 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/28 13:32:49 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:18:54 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,21 @@ void	ft_minimap(int **map, t_list *stock)
 					ft_miniwall(y, x, stock);
 		}
 	}
+}
+
+int		ft_errormap(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isnum(str[i]) == 0 && str[i] != ' ' && str[i] != 'E'
+		&& str[i] != 'N' && str[i] != 'S' && str[i] != 'O')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

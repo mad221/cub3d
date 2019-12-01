@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:31:23 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 16:34:57 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:44:43 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,19 @@ void	ft_putchar(char c)
 int		ft_free_error(int number, t_list *stock)
 {
 	int i;
+
 	number += 0;
 	i = -1;
-	printf("number = %d\n", number);
-
 	if (number <= -7)
 	{
-		while (++i <  stock->map_height)
+		while (++i <= stock->map_height)
 			free(stock->map[i]);
 		free(stock->map);
 	}
 	i = -1;
 	if (number < -2)
 	{
-		printf("stock->num = %d\n", stock->number_path);
-		while (++i <= stock->number_path)
+		while (++i < stock->number_path || i == 0)
 			free(stock->path_wall[i]);
 		if (stock->number_sprite == 1)
 			free(stock->path_sprite);

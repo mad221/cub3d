@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:14:41 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 13:28:37 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:57:54 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 static int	ft_init_value(t_list *stock)
 {
+	ft_correct_resolution(stock);
 	stock->rotate_speed = 0.20;
 	stock->speed = 0.40;
 	stock->angle = 3;

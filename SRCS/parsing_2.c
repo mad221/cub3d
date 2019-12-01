@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 10:43:09 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 16:07:33 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:56:55 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	ft_correct_resolution(t_list *stock)
 {
-	if (stock->wdw_height > 2560)
-		stock->wdw_height = 2560;
-	if (stock->wdw_width > 1440)
-		stock->wdw_width = 1440;
+	if (stock->wdw_height > 1440)
+		stock->wdw_height = 1440;
+	if (stock->wdw_width > 2560)
+		stock->wdw_width = 2560;
 }
 
 int		ft_resolution(t_list *stock)

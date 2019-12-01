@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:22:06 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 17:22:30 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:27:23 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int		ft_init_texture(t_list *stock)
 {
 	stock->nbr_texture = 0;
-
 	if ((stock->mlx_co = mlx_init()) == 0)
 		return (0);
 	if ((stock->mlx_wdw = mlx_new_window(stock->mlx_co,
@@ -41,7 +40,7 @@ int		ft_cpy(char *dst, char *src)
 	return (0);
 }
 
-int			ft_path_wall(t_list *stock)
+int		ft_path_wall(t_list *stock)
 {
 	int i;
 
@@ -59,39 +58,12 @@ int			ft_path_wall(t_list *stock)
 		ft_free(stock);
 		if (open(stock->path_wall[i], O_RDONLY) < 0)
 			return (0);
-		stock->number_path = i+1;
-	}
-	return (1);
-}
-int 			ft_texture(t_list *stock)
-{
-	if (ft_path_wall(stock) == 0)
-		return (0);
-	return (1);
-}
-
-int				ft_texturing(t_list *stock)
-{
-	int			i;
-
-	i = -1;
-	if (!(stock->mlx_wall = malloc(sizeof(int*) * 4)) ||
-	!(stock->cast = malloc(sizeof(int *) * 4)))
-		return (0);
-	while (++i < 4)
-	{
-		if (((stock->mlx_wall[i] = mlx_xpm_file_to_image(stock->mlx_co,
-		stock->path_wall[i], &stock->width, &stock->height))
-		<= 0))
-			return (0);
-		if (((stock->cast[i] = (int*)mlx_get_data_addr(stock->mlx_wall[i],
-		&stock->bitpx, &stock->size_line, &stock->endian)) <= 0))
-			return (0);
+		stock->number_path = i + 1;
 	}
 	return (1);
 }
 
-int				ft_color(t_list *stock)
+int		ft_color(t_list *stock)
 {
 	while (get_next_line(stock->fd, &stock->string) &&
 	stock->string[0] != 'F' && ft_free(stock))
@@ -108,10 +80,10 @@ int				ft_color(t_list *stock)
 	return (1);
 }
 
-int				ft_conv(int *array, char *str)
+int		ft_conv(int *array, char *str)
 {
-	int			i;
-	int			s;
+	int	i;
+	int	s;
 
 	i = -1;
 	s = 0;

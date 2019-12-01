@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 14:02:13 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 17:43:15 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:19:09 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_sprite(t_list *stock)
 	return (1);
 }
 
-int		ft_spriting(t_list *stock)
+int			ft_spriting(t_list *stock)
 {
 	if ((stock->sprite = mlx_xpm_file_to_image(stock->mlx_co,
 	stock->path_sprite, &stock->sprite_width,
@@ -68,23 +68,6 @@ int			ft_map(t_list *stock)
 	}
 	ft_free(stock);
 	return (ft_init_pos(stock));
-}
-
-int	ft_errormap(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isnum(str[i]) == 0 && str[i] != ' ' && str[i] != 'E'
-		&& str[i] != 'N' && str[i] != 'S' && str[i] != 'O')
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
 }
 
 int			ft_check_map(t_list *stock)

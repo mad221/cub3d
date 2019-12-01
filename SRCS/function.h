@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 17:20:28 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:21:36 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,4 +202,5 @@ int					ft_texturing(t_list *stock);
 int					ft_spriting(t_list *stock);
 int					ft_parsing_map(t_list *liste);
 int					ft_errormap(char *str);
+int					ft_path_wall(t_list *stock);
 #endif

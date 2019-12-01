@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:50:53 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/30 17:44:54 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/01 16:15:17 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int			ft_init_pos(t_list *stock)
 	return (stock->pos_ok != 1 ? -9 : 1);
 }
 
-int		ft_parsing_map(t_list *stock)
+int			ft_parsing_map(t_list *stock)
 {
 	int i;
 	int s;

@@ -76,7 +76,7 @@ typedef struct		s_list
 	int				nbr_texture;
 	char			**path_wall;
 	char			*path_sprite;
-	int 			number_path;
+	int				number_path;
 	int				number_sprite;
 }					t_list;
 

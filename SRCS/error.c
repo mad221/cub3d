@@ -42,7 +42,7 @@ int		ft_free_error(int number, t_list *stock)
 	i = -1;
 	if (number < -2)
 	{
-		while (++i < stock->number_path || i == 0)
+		while ((++i <= stock->number_path && i < 4) || i == 0 )
 			free(stock->path_wall[i]);
 		if (stock->number_sprite == 1)
 			free(stock->path_sprite);

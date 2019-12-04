@@ -20,12 +20,32 @@ void	ft_adding_height(t_list *stock, int *i)
 	*i += 1;
 }
 
-int		ft_gnl_pos(t_list *stock, char c1, char c2)
+int		ft_search_wall(t_list *stock, int i)
 {
-	while (get_next_line(stock->fd, &stock->string) && (stock->string[0] != c1
-	|| stock->string[1] != c2))
+	ft_open(stock);
+	while (get_next_line(stock->fd, &stock->string))
+	{
+		if (i == 0)
+		{
+			if (stock->string[0] == 'N' && stock->string[1] == 'O')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		if (i == 1)
+		{
+			if (stock->string[0] == 'S' && stock->string[1] == 'O')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		if (ft_seach_wall_2(stock, i) == 1)
+			return (1);
 		ft_free(stock);
-	return (1);
+	}
+	return (0);
 }
 
 int		ft_open(t_list *stock)

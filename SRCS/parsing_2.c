@@ -72,16 +72,24 @@ int		ft_bg(char *str, int order)
 	return (i++);
 }
 
-int		ft_check_i(int i, t_list *stock)
+int		ft_seach_wall_2(t_list *stock, int i)
 {
-	if (i == 0)
-		return (ft_gnl_pos(stock, 'N', 'O'));
-	else if (i == 1)
-		return (ft_gnl_pos(stock, 'S', 'O'));
-	else if (i == 2)
-		return (ft_gnl_pos(stock, 'W', 'E'));
-	else if (i == 3)
-		return (ft_gnl_pos(stock, 'E', 'A'));
+	if (i == 2)
+	{
+		if (stock->string[0] == 'W' && stock->string[1] == 'E')
+		{
+			return (1);
+			close(stock->fd);
+		}
+	}
+	if (i == 3)
+	{
+		if (stock->string[0] == 'E' && stock->string[1] == 'A')
+		{
+			return (1);
+			close(stock->fd);
+		}
+	}
 	return (0);
 }
 

@@ -105,10 +105,10 @@ int			ft_parsing(t_list *stock)
 		free(stock->string);
 	if (ft_resolution(stock) == 0)
 		return (-2);
-		close(stock->fd);
+	close(stock->fd);
 	if (ft_texture(stock) == 0)
 		return (-3);
-		close(stock->fd);
+	close(stock->fd);
 	if (ft_open(stock) == 0)
 		return (-1);
 	if (ft_sprite(stock) == 0)
@@ -117,7 +117,6 @@ int			ft_parsing(t_list *stock)
 		return (-5);
 	if ((error = ft_map(stock)) <= 0)
 		return (error);
-	printf("je suis sorti de map \n");
 	if (ft_check_map(stock) == 0)
 		return (-7);
 	return (1);

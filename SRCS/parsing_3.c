@@ -40,6 +40,49 @@ int		ft_cpy(char *dst, char *src)
 	return (0);
 }
 
+
+int ft_search_wall(t_list *stock, int i)
+{
+	ft_open(stock);
+	while (get_next_line(stock->fd, &stock->string))
+	{
+		if (i == 0)
+		{
+			if (stock->string[0] == 'N' && stock->string[1] == 'O')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		if (i == 1)
+		{
+			if (stock->string[0] == 'S' && stock->string[1] == 'O')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		if (i == 2)
+		{
+			if (stock->string[0] == 'W' && stock->string[1] == 'E')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		if (i == 3)
+		{
+			if (stock->string[0] == 'E' && stock->string[1] == 'A')
+			{
+				return (1);
+				close(stock->fd);
+			}
+		}
+		ft_free(stock);
+	}
+	return (0);
+}
+
 int		ft_path_wall(t_list *stock)
 {
 	int i;
@@ -49,8 +92,7 @@ int		ft_path_wall(t_list *stock)
 		return (0);
 	while (++i < 4)
 	{
-		if (ft_check_i(i, stock) == 0 && ft_free(stock) == 0)
-			return (0);
+		ft_search_wall(stock, i);
 		if (!(stock->path_wall[i] = malloc(sizeof(char)
 		* ft_strlen(&stock->string[ft_bg(stock->string, i)]) + 2)))
 			return (0);
@@ -65,19 +107,26 @@ int		ft_path_wall(t_list *stock)
 
 int		ft_color(t_list *stock)
 {
-	while (get_next_line(stock->fd, &stock->string) &&
-	stock->string[0] != 'F' && ft_free(stock))
-		free(stock->string);
-	if ((stock->color_ciel = ft_convert(stock->string)) == -1)
-		return (ft_free(stock) * 0);
-	ft_free(stock);
-	while (get_next_line(stock->fd, &stock->string)
-	&& stock->string[0] != 'C')
-		free(stock->string);
-	if ((stock->color_floor = ft_convert(stock->string)) == -1)
-		return (ft_free(stock) * 0);
-	free(stock->string);
-	return (1);
+	int c;
+
+	while (get_next_line(stock->fd, &stock->string))
+	{
+		c = 1;
+		if (stock->string[0] == 'F')
+		{
+			if ((stock->color_ciel = ft_convert(stock->string)) == -1)
+				return(ft_free(stock) * 0);
+		}
+			if (stock->string[0] == 'C')
+		{
+			if ((stock->color_floor = ft_convert(stock->string)) == -1)
+				return(ft_free(stock) * 0);
+		}
+		if (c == 1)
+			free(stock->string);
+	}
+	close(stock->fd);
+	return (c);
 }
 
 int		ft_conv(int *array, char *str)

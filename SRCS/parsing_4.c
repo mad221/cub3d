@@ -16,10 +16,11 @@
 int			ft_search_map(t_list *stock, int *i)
 {
 	int	map;
-	int	status;
 
 	map = 0;
-	while ((status = get_next_line(stock->fd, &stock->string)))
+	ft_free(stock);
+	ft_open(stock);
+	while ((get_next_line(stock->fd, &stock->string)))
 	{
 		if (stock->string[0] == '1' && !map)
 			map = 1;

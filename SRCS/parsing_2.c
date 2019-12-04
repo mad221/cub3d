@@ -26,8 +26,6 @@ int		ft_resolution(t_list *stock)
 	int i;
 
 	i = 0;
-	while (get_next_line(stock->fd, &stock->string) && stock->string[0] != 'R')
-		ft_free(stock);
 	if (stock->string[i] == 'R')
 	{
 		i++;

@@ -1,9 +1,9 @@
-R       27980 1080
-NO TEXTURES/eagle.xpm
-SO TEXTURES/n.xpm
+R       2980 1080
+SO TEXTURES/eagle.xpm
+WE TEXTURES/n.xpm
 
 
-WE TEXTURES/mossy.xpm
+NO TEXTURES/mossy.xpm
 
 EA            TEXTURES/redbrick.xpm
 
@@ -11,17 +11,16 @@ EA            TEXTURES/redbrick.xpm
 
 
 
-S        TEXTURES/pillar.xpm
+
 F 220,10,00
+S        TEXTURES/pillar.xpm
 C 225,30,0
-
-
 
 
 
 111111
 100001
-102001
+102101
 1100N1
 111111
 

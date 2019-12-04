@@ -42,13 +42,12 @@ int		ft_isnum(char c)
 	return (0);
 }
 
-int ft_rg(int color, int s, int *rgb, int *i)
+int ft_rg(int color, int s, int *rgb)
 {
 	if (s == 1)
 		*rgb = color;
   	if (s ==2)
 	  *rgb = (*rgb << 8) | color;
-	*i += 1;
   return (0);
 }
 
@@ -72,7 +71,10 @@ int		ft_convert(char *str)
 			color = color * 10 + str[i] - '0';
 			i++;
 			if (str[i] == ',' && ++s < 3)
-				color = ft_rg(color ,s , &rgb);
+				{
+					color = ft_rg(color ,s , &rgb);
+					i++;
+				}
 		}
 		if (str[i] != '\0' && ft_isnum(str[i]) != 1)
 			return (-1);

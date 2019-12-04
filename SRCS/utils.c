@@ -42,15 +42,6 @@ int		ft_isnum(char c)
 	return (0);
 }
 
-int ft_rg(int color, int s, int *rgb)
-{
-	if (s == 1)
-		*rgb = color;
-  	if (s ==2)
-	  *rgb = (*rgb << 8) | color;
-  return (0);
-}
-
 int		ft_convert(char *str)
 {
 	int i;
@@ -59,9 +50,8 @@ int		ft_convert(char *str)
 	int rgb;
 
 	s = 0;
-	i = 0;
 	color = 0;
-	if (str[i] == 'F' || str[i] == 'C')
+	if ((i = 0) == 0 && (str[i] == 'F' || str[i] == 'C'))
 	{
 		i++;
 		while (str[i] == ' ')
@@ -71,10 +61,7 @@ int		ft_convert(char *str)
 			color = color * 10 + str[i] - '0';
 			i++;
 			if (str[i] == ',' && ++s < 3)
-				{
-					color = ft_rg(color ,s , &rgb);
-					i++;
-				}
+				color = ft_rg(color, s, &rgb, &i);
 		}
 		if (str[i] != '\0' && ft_isnum(str[i]) != 1)
 			return (-1);

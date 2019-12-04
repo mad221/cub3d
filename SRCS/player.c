@@ -38,6 +38,7 @@ void	ft_mlx_stop(t_list *stock)
 	mlx_destroy_image(stock->mlx_co, stock->new_wdw);
 	mlx_destroy_window(stock->mlx_co, stock->mlx_wdw);
 	free(stock);
+	system("leaks cub3D");
 	exit(EXIT_SUCCESS);
 }
 

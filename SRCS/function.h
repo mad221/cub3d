@@ -203,4 +203,5 @@ int					ft_spriting(t_list *stock);
 int					ft_parsing_map(t_list *liste);
 int					ft_errormap(char *str);
 int					ft_path_wall(t_list *stock);
+int					ft_rg(int color, int s, int *rgb, int *i);
 #endif

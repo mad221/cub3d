@@ -89,3 +89,13 @@ void	ft_combsort(int *order, double *dist, int amount)
 		}
 	}
 }
+
+int		ft_rg(int color, int s, int *rgb, int *i)
+{
+	if (s == 1)
+		*rgb = color;
+	if (s == 2)
+		*rgb = (*rgb << 8) | color;
+	*i += 1;
+	return (0);
+}

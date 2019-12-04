@@ -95,6 +95,7 @@ int			ft_parsing(t_list *stock)
 
 	if (ft_open(stock) == 0)
 		return (-1);
+		w
 	if (ft_resolution(stock) == 0)
 		return (-2);
 	if (ft_texture(stock) == 0)

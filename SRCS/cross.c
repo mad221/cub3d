@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:47 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 16:35:37 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 12:47:50 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_redcross(t_list *stock)
 	free(stock->map);
 	mlx_destroy_window(stock->mlx_co, stock->mlx_wdw);
 	free(stock);
+	system("leaks cub3D");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

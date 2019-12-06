@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/06 11:12:07 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 15:08:16 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,7 +203,7 @@ int					ft_spriting(t_list *stock);
 int					ft_parsing_map(t_list *liste);
 int					ft_errormap(char *str);
 int					ft_path_wall(t_list *stock);
-int					ft_rg(int color, int s, int *rgb, int *i);
+int					ft_rg(int color, int *s, int *rgb, int *i);
 int					ft_search_wall(t_list *stock, int i);
 int					ft_seach_wall_2(t_list *stock, int i);
 int					ft_check_parse(t_list *stock);

@@ -12,7 +12,7 @@ EA            TEXTURES/redbrick.xpm
 
 
 
-F 220,10,00
+F 250  ,   210,  250
 S        TEXTURES/pillar.xpm
 C 225,30,0
 

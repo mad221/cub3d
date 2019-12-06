@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 10:41:43 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/27 10:48:01 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 15:10:47 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,13 @@ void	ft_combsort(int *order, double *dist, int amount)
 	}
 }
 
-int		ft_rg(int color, int s, int *rgb, int *i)
+int		ft_rg(int color, int *s, int *rgb, int *i)
 {
-	if (s == 1)
+	if (color > 255)
+		*s += 4;
+	if (*s == 1)
 		*rgb = color;
-	if (s == 2)
+	if (*s == 2)
 		*rgb = (*rgb << 8) | color;
 	*i += 1;
 	return (0);

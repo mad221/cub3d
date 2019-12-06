@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:17:01 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/11/29 13:05:03 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 15:09:29 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,21 @@ int		ft_convert(char *str)
 
 	s = 0;
 	color = 0;
-	if ((i = 0) == 0 && (str[i] == 'F' || str[i] == 'C'))
+	if ((i = 1) == 1 && (str[0] == 'F' || str[0] == 'C'))
 	{
-		i++;
 		while (str[i] == ' ')
 			i++;
-		while (ft_isnum(str[i]) == 1)
+		while (ft_isnum(str[i]) == 1 || str[i] == ' ')
 		{
-			color = color * 10 + str[i] - '0';
+			if (ft_isnum(str[i]) == 1)
+				color = color * 10 + str[i] - '0';
 			i++;
 			if (str[i] == ',' && ++s < 3)
-				color = ft_rg(color, s, &rgb, &i);
+				color = ft_rg(color, &s, &rgb, &i);
 		}
 		if (str[i] != '\0' && ft_isnum(str[i]) != 1)
 			return (-1);
-		if (i <= 11 && s == 2)
+		if (s == 2 && color <= 255)
 			return ((rgb << 8) | color);
 	}
 	return (-1);

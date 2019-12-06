@@ -6,7 +6,7 @@
 #    By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 16:33:34 by mpouzol           #+#    #+#              #
-#    Updated: 2019/12/01 16:26:00 by mpouzol          ###   ########.fr        #
+#    Updated: 2019/12/06 11:13:08 by mpouzol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS =	SRCS/area_vision.c\
 		SRCS/save.c\
 		SRCS/utils.c\
 		SRCS/texture.c\
+		SRCS/parse_arg.c\
 
 OBJECTS = $(SRCS:.c=.o)
 

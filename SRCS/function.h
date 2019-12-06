@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:19:39 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 16:21:36 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 11:12:07 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,4 +206,5 @@ int					ft_path_wall(t_list *stock);
 int					ft_rg(int color, int s, int *rgb, int *i);
 int					ft_search_wall(t_list *stock, int i);
 int					ft_seach_wall_2(t_list *stock, int i);
+int					ft_check_parse(t_list *stock);
 #endif

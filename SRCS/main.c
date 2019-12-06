@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:14:41 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 17:05:46 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 12:13:31 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			main(int ac, char **argv)
 		ft_putstr("Error\nToo Few Arguments\n");
 	if (ac == 1 || ft_file(argv[1], ".cub", stock) == 0)
 		return (ft_free_stock(stock));
-	if (ft_message(ft_parsing(stock), stock) != 1)
+	if (!(ft_check_parse(stock)) || ft_message(ft_parsing(stock), stock) != 1)
 		return (0);
 	if ((ft_init_value(stock)) == 0)
 		return (0);

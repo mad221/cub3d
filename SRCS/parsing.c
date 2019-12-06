@@ -31,7 +31,6 @@ static int	ft_sprite(t_list *stock)
 		}
 		ft_free(stock);
 	}
-	printf("je suis sorti\n");
 	return (0);
 }
 

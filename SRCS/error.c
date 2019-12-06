@@ -35,7 +35,7 @@ int		ft_free_error(int number, t_list *stock)
 	i = -1;
 	if (number <= -7)
 	{
-		while ((++i <= stock->map_height && stock->map_height != 1) || i == 0)
+		while ((++i < stock->map_height && stock->map_height != 1) || i == 0)
 			free(stock->map[i]);
 		free(stock->map);
 	}

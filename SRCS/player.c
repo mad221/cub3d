@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:47:22 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 16:30:33 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 12:50:30 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_mlx_stop(t_list *stock)
 	mlx_destroy_image(stock->mlx_co, stock->new_wdw);
 	mlx_destroy_window(stock->mlx_co, stock->mlx_wdw);
 	free(stock);
-	system("leaks cub3D");
 	exit(EXIT_SUCCESS);
 }
 

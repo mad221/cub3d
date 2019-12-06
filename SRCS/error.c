@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 11:31:23 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/01 16:44:43 by mpouzol          ###   ########.fr       */
+/*   Updated: 2019/12/06 12:49:59 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int		ft_free_error(int number, t_list *stock)
 	}
 	free(stock->file);
 	free(stock);
-	system("leaks cub3D");
 	return (0);
 }
 
